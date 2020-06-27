@@ -11,15 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: fetch tags
-          run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+        run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - name: Roave BC Check
-      - uses: docker://nyholm/roave-bc-check-ga
-      # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
-      - name: Hello world
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: 'Welcome to Backward Compatility'
-        id: hello
-      # This step prints an output (time) from the previous step's action.
-      - name: Echo the greeting's time
-        run: echo 'The time was ${{ steps.hello.outputs.time }}.'
+        uses: docker://nyholm/roave-bc-check-ga
+#    steps:
+#      - uses: actions/checkout@master
+#      - name: fetch tags
+#          run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+#      - name: Roave BC Check
+#      - uses: docker://nyholm/roave-bc-check-ga
+#      # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
+#      - name: Hello world
+#        uses: actions/hello-world-javascript-action@v1
+#        with:
+#          who-to-greet: 'Welcome to Backward Compatility'
+#        id: hello
+#      # This step prints an output (time) from the previous step's action.
+#      - name: Echo the greeting's time
+#        run: echo 'The time was ${{ steps.hello.outputs.time }}.'
